@@ -1,0 +1,75 @@
+.task {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  overflow-x: hidden;
+}
+
+.newTask {
+  height: 3.4rem;
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.newTask input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 16px;
+
+  color: var(--gray-300);
+  background-color: var(--gray-500);
+  border: 0;
+}
+
+.newTask .iconButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 16px;
+
+  border-radius: 8px;
+  background-color: var(--blue-dark);
+  color: white;
+  border: 0;
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  background-color: var(--purple-dark);
+}
+
+.taskBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.taskHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.taskBody .taskHeader span {
+  margin-left: 0.5rem;
+  padding: 0.125rem 0.5rem;
+  background-color: var(--gray-400);
+  border-radius: 100%;
+  font-size: small;
+  color: var(--white);
+}
+
+.textBlue {
+  color: var(--blue);
+}
+
+.textPurple {
+  color: var(--purple);
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+}
