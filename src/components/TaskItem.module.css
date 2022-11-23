@@ -17,24 +17,25 @@
 
 .field p {
   font-size: 0.875rem;
-  max-width: 39rem;
+  max-width: 37rem;
 }
 
 input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 1rem;
-  height: 1rem;
+  width: 1.25rem;
+  height: 1.25rem;
   background-color: transparent;
   border: 2px solid var(--blue);
   border-radius: 100%;
+  cursor: pointer;
 }
 
 input[type="checkbox"]:checked {
   background-color: var(--purple-dark);
   border: 2px solid var(--purple-dark);
-  appearance: checked;
+  content: url("../assets/check.svg");
 }
 
 .delete {

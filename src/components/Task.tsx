@@ -5,11 +5,13 @@ import uuid from "react-uuid";
 
 import styles from "./Task.module.css";
 import TaskItem from "./TaskItem";
+import clipBoard from "../assets/Clipboard.svg";
 
 interface Task {
   id: string;
   text: string;
   checked: boolean;
+  createdAt: Date;
 }
 
 const Task = () => {
@@ -18,7 +20,7 @@ const Task = () => {
 
   const handleCreateNewTask = (e: React.FormEvent) => {
     e.preventDefault();
-    setTasks((prevState) => [...prevState, { id: uuid(), text: newTaskText, checked: false }]);
+    setTasks((prevState) => [{ id: uuid(), text: newTaskText, checked: false, createdAt: new Date() }, ...prevState]);
     setNewTaskText("");
   };
 
@@ -28,6 +30,7 @@ const Task = () => {
     });
     setTasks(newTasks);
   };
+  console.log(tasks);
 
   const onTaskCheck = (id: string) => {
     const newTasks = tasks.filter(function (task) {
@@ -63,9 +66,23 @@ const Task = () => {
           </p>
         </div>
         <div className={styles.taskList}>
-          {tasks.map((task) => {
-            return <TaskItem key={task.id} id={task.id} text={task.text} checked={task.checked} handleTaskDelete={onTaskDelete} handleCheckTask={onTaskCheck} />;
-          })}
+          {tasks.length > 0 ? (
+            tasks
+              .sort((a, b) => {
+                return a.checked === b.checked ? 1 : a.checked ? 1 : -1;
+              })
+              .map((task) => {
+                return <TaskItem key={task.id} id={task.id} text={task.text} checked={task.checked} handleTaskDelete={onTaskDelete} handleCheckTask={onTaskCheck} />;
+              })
+          ) : (
+            <div className={styles.emptyList}>
+              <img src={clipBoard} />
+              <div>
+                <h3>Você ainda não tem tarefas cadastradas</h3>
+                <p>Crie tarefas e organize seus itens a fazer</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -15,8 +15,7 @@ const TaskItem = ({ id, text, checked, handleTaskDelete, handleCheckTask }: Prop
   return (
     <div className={styles.taskItem}>
       <div className={styles.field}>
-        {/* <input type={"checkbox"} checked={checked} onChange={() => handleCheckTask(text)} className={styles.checkbox} /> */}
-        {checked ? <CheckCircle onClick={() => handleCheckTask(id)} size={16} /> : <Circle onClick={() => handleCheckTask(id)} size={16} />}
+        <input type={"checkbox"} checked={checked} onChange={() => handleCheckTask(id)} />
         <p>{text}</p>
       </div>
       <div className={styles.delete} onClick={() => handleTaskDelete(id)}>
